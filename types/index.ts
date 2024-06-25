@@ -4,6 +4,9 @@ export interface CustomButtonProps {
   title: string;
   btnType?: 'submit' | 'button';
   containerStyles?: string;
+  textStyles?: string;
+  iconRight?: string;
+  iconLeft?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
