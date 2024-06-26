@@ -1,6 +1,7 @@
 'use client';
 
 import { CarProps } from '@/types';
+import { generateCardImageUrl } from '@/utils';
 import {
   Transition,
   Dialog,
@@ -61,7 +62,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   <div className='flex flex-col flex-1 gap-3'>
                     <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
                       <Image
-                        src='/hero.png'
+                        src={generateCardImageUrl(car)}
                         alt='car model'
                         fill
                         priority
@@ -72,7 +73,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     <div className='flex gap-3'>
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                         <Image
-                          src='/hero.png'
+                          src={generateCardImageUrl(car, '29')}
                           alt='car model'
                           fill
                           priority
@@ -82,7 +83,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
 
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                         <Image
-                          src='/hero.png'
+                          src={generateCardImageUrl(car, '33')}
                           alt='car model'
                           fill
                           priority
@@ -92,7 +93,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
 
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
                         <Image
-                          src='/hero.png'
+                          src={generateCardImageUrl(car, '13')}
                           alt='car model'
                           fill
                           priority
@@ -107,10 +108,10 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       {car.make} {car.model}
                     </h2>
                     <div className='mt-3 flex flex-wrap gap-4'>
-                      {Object.entries(car).map(([key, value]) => (
+                      {Object.entries(car).map(([key, value], index) => (
                         <div
                           className='flex justify-between gap-5 w-full text-right'
-                          key={key}
+                          key={key + index}
                         >
                           <h4 className='text-grey capitalize'>
                             {key.split('_').join(' ')}
